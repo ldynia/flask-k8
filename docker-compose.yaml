@@ -1,12 +1,20 @@
 version: "3.8"
 services:
+  redis:
+    image: redis
+    container_name: flask-k8s-redis
+    hostname: flask-k8s-redis-dev
+    ports:
+      - 6379:6379
   app:
     build:
       context: ./app
       dockerfile: ../docker/Dockerfile
-    image: flask/demo
-    container_name: flask-demo
-    hostname: flask-dev-demo
+    image: flask/k8s
+    container_name: flask-k8s-app
+    hostname: flask-k8s-app-dev
+    environment:
+      - APP_COLOR=read
     volumes:
-       - ./app:/app
+      - ./app:/app
     # command: sleep 3600

@@ -2,7 +2,6 @@ from flask import Flask
 
 
 def create_app(config=None):
-
     app = Flask(__name__, static_folder=None)
 
     register_views(app)
