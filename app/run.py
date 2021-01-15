@@ -9,7 +9,9 @@ from app import create_app
 
 app = create_app()
 
-from app.modules.hello import *
+from app.modules.demo.apk import *
+from app.modules.demo.hello import *
+from app.modules.demo.redis import *
 
 # link: https://stackoverflow.com/questions/34615743/unable-to-load-configuration-from-uwsgi#answer-37175998
 if __name__ == "__main__":
