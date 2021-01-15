@@ -1,4 +1,3 @@
-import os
 import socket
 
 from app import redis_cli
@@ -7,11 +6,10 @@ from app.run import app
 
 @app.route('/redis')
 def hello_redis():
-    app = os.getenv('APP_COLOR', 'orange')
     hostname = socket.gethostname()
     tvc, hvc = count_visits(hostname)
 
-    return f'Hello, {app} :) Says, {hostname}! Visits total/host: {tvc}/{hvc}'
+    return f'Hello from {hostname} ! Visits total/host: {tvc}/{hvc}'
 
 def count_visits(hostname):
     total_visits_count = redis_cli.get('visits')
