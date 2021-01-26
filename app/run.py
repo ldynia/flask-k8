@@ -9,7 +9,7 @@ from app import create_app
 
 app = create_app()
 
-from app.modules.demo.apk import *
+from app.modules.demo.app import *
 from app.modules.demo.hello import *
 from app.modules.demo.redis import *
 

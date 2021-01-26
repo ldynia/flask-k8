@@ -6,7 +6,7 @@ ENV PORT=$PORT
 ARG HOST=0.0.0.0
 ENV HOST=$HOST
 
-ARG FLASK_APP=/app/config/run.py
+ARG FLASK_APP=/app/run.py
 ENV FLASK_APP=$FLASK_APP
 
 ARG FLASK_ENV=development

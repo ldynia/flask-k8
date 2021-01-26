@@ -13,9 +13,9 @@ services:
     image: flask/k8s
     container_name: flask-k8s-app
     hostname: flask-k8s-app
-    environment:
-      - APP_COLOR=read
-      - FLASK_APP=/app/run.py
+    # environment:
+    #   - APP_COLOR=red
+    #   - FLASK_APP=/app/run.py
     volumes:
       - ./app:/app
     # command: sleep 3600
