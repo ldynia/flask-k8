@@ -1,6 +1,3 @@
-import os
-import socket
-
 from flask import jsonify
 
 from app.run import app
