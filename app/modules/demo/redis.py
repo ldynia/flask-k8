@@ -13,6 +13,7 @@ def hello_redis():
     tvc, hvc = count_visits(hostname)
 
     return jsonify({
+        'data': 'Hello REST API!',
         'app': os.getenv('APP_COLOR'),
         'hostname': hostname,
         'host_visits_count': hvc,
