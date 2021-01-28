@@ -1,12 +1,14 @@
 import os
 import socket
 
+from flask import jsonify
+
 from app.run import app
 
 
 @app.route('/app')
 def hello_app():
-    app = os.getenv('APP_COLOR', 'orange')
-    hostname = socket.gethostname()
-
-    return f'Hello, {app} :) Says, {hostname}!'
+    return jsonify({
+        'app': os.getenv('APP_COLOR'),
+        'hostname': socket.gethostname(),
+    }), 200

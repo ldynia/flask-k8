@@ -1,4 +1,7 @@
+import os
 import socket
+
+from flask import jsonify
 
 from app import redis_cli
 from app.run import app
@@ -9,7 +12,13 @@ def hello_redis():
     hostname = socket.gethostname()
     tvc, hvc = count_visits(hostname)
 
-    return f'Hello from {hostname} ! Visits total/host: {tvc}/{hvc}'
+    return jsonify({
+        'app': os.getenv('APP_COLOR'),
+        'hostname': hostname,
+        'host_visits_count': hvc,
+        'total_visits_count': tvc,
+    }), 200
+
 
 def count_visits(hostname):
     total_visits_count = redis_cli.get('visits')

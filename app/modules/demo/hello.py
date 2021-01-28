@@ -1,10 +1,13 @@
+import os
 import socket
+
+from flask import jsonify
 
 from app.run import app
 
 
 @app.route('/')
 def hello_world():
-    hostname = socket.gethostname()
-
-    return f'Hello! Says {hostname}'
+    return jsonify({
+        'data': 'Hello REST API!',
+    }), 200
