@@ -1,6 +1,6 @@
 FROM python:3.7.9-alpine
 
-ARG PORT=80
+ARG PORT=8080
 ENV PORT=$PORT
 
 ARG HOST=0.0.0.0
